@@ -1,8 +1,5 @@
 import { Auth, pingAll } from "./api.js";
 
-const title = document.querySelector("h1");
-title.innerHTML = chrome.runtime.getManifest().name +' '+ title.innerHTML;
-
 const /** @type {HTMLFormElement} */
     form = document.getElementById("input-form"),
     /** @type {HTMLInputElement} */
@@ -17,11 +14,11 @@ form.addEventListener('submit', event => {
     let auth = new Auth(nation.value);
     auth.register(password.value).then(response => {
         indicator.innerHTML = "Status " + response.status + " OK!"; 
-        indicator.classList.add("success");
+        indicator.style.color = "#4BB543";
         refreshNationList();
     }).catch(response => {
         indicator.innerHTML = "Status " + response.status + " ERR!";
-        indicator.classList.add("error");
+        indicator.style.color = "red";
     });
 });
 
