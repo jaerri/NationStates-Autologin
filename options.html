@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Options</title>
+    <link rel="icon" type="image/png" href="/icon.png">
+</head>
+<style>
+body {
+    font-size: 1rem;
+}
+h1 {
+    display: inline;
+    font: 2rem 'Fira Sans', sans-serif;
+} 
+p {
+    line-height: 1.5;
+}
+button {
+    padding: 0.8% 1%;
+    margin-right: 1ch;
+}
+main {
+    margin: 2% 3%;
+}
+form {
+    display: grid;
+    grid-auto-columns: max-content;
+}
+form h3 {
+    margin-block: 2px;
+}
+form input {
+    grid-row: 2 / 3;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+}
+.status {
+    grid-row: 2 / 3;
+    font-size: 1.4rem;
+    line-height:35px;
+    margin-block: 0%;
+    margin-inline-start: 1rem;
+}
+.success { color: #4BB543; }
+.error { color: red; }
+</style>
+<body>
+    <header>
+        <h1>Configuration</h1>
+    </header>
+    <hr>
+    <main>
+        <form id="input-form">
+            <h3>Nation:</h3>
+            <h3>Password:</h3>
+            <input id="input-nation" type="text" required size="15" />
+            <input id="input-password" type="password" required size="18" />
+            <input type="submit" value="Add nation" />
+            <p id="status-indicator" class="status"></p>
+        </form>
+        <p>
+            Use NAME (open Nation page and check the URL), not FULLNAME
+            <br>
+            e.g. "testlandia" not "The Hive Mind of Testlandia"
+        </p>
+        <button id="ping-all">Ping all</button>
+        <span>(don't spam, API cooldown)</span>
+        <ul id="nation-list">
+        </ul>
+        <hr>
+        <p>
+            <strong>ALWAYS CHECK CONSOLE FOR UNDEFINED BEHAVIOUR!</strong><br>
+            Best for maintaining alt nations/colonies/dependencies.<br><br>
+
+            The nations on the list will "pinged" every time the browser is started.<br>
+            Nations in NationStates automatically cease to exist after <b>28</b> days of inactivity.<br><br>
+
+            The raw password is not stored in the browser, rather X-Autologin, the encrypted version
+                of the password provided by NationStates.<br>
+            However, X-Autologin can still be used to access your nation, so mind the risk
+                to each of your nation before using.<br>
+            More information: <a href="https://www.nationstates.net/pages/api.html#authenticating">
+                https://www.nationstates.net/pages/api.html#authenticating
+            </a>
+        </p>
+    </main>
+    <script type="module" src="/scripts/options.js"></script>
+</body>
+</html>
